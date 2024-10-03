@@ -26,9 +26,13 @@
             <div class="col-sm-1">
                 {% if user.username %}
                     <p>Xin chào {{user.username}}</p>
-                    <p><a href="{% url 'logout' %}">Đăng xuất</a></p>
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-info">Đăng xuất</button>
+                    </form>
                 {% else %}
-                    <p><a href="{% url 'register' %}">Đăng ký</a>|<a href="{% url 'login' %}">Đăng nhập</a></p>
+                    <p><a href="{% url 'register' %}" class="btn btn-info">Đăng ký</a></p>
+                    <p><a href="{% url 'login' %}" class="btn btn-info">Đăng nhập</a></p>
                 {% endif %}
             </div>
         </div>
@@ -59,3 +63,11 @@
     </footer>
 </body>
 </html>
+# <p><a href="{% url 'register' %}" class="btn btn-primary">Đăng ký</a></p>
+# <p><button href="{% url 'login' %}">Đăng nhập</button></p>
+'''
+<form action="{% url 'login' %}"></form>
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-info">Đăng nhập</button>
+                    </form>
+'''

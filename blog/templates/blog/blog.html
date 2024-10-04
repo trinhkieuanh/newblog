@@ -8,7 +8,10 @@
         <img src="{{post.image.url}}" width="500px" height="300px" />
     {% endfor %}
     <br/>
+    {% if page_obj.has_previous %}
+        <a href="{{request.path}}?page={{page_obj.previous_page_number}}" class="btn btn-info">Previous</a>
+    {% endif %}
     {% if page_obj.has_next %}
-        <a href="{{request.path}}?page={{page_obj.next_page_number}}">Next</a>
+        <a href="{{request.path}}?page={{page_obj.next_page_number}}" class="btn btn-info">Next</a>
     {% endif %}
 {% endblock %}

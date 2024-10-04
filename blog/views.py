@@ -2,11 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from blog.models import Post, Comment
 from blog.forms import CommentForm
 from django.http import HttpResponseRedirect
+from django.views.generic import ListView, DetailView
 
 # Create your views here.
-def index(request):
-    posts = Post.objects.all()
-    return render(request, 'blog/blog.html', {'Posts': posts})
 def post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     form = CommentForm()
